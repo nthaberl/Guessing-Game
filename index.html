@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Natascha Haberl">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        //using posttest loop to automatically jump into the program
+        do {
+            //initializing counter for number of guesses it will take
+            let numOfGuesses = 1;
+
+            //generating random number between 1 and 10
+            let randomNumber = Math.floor(Math.random() * 10) + 1;
+
+            //using prompt to grab user input
+            let playerNumber = prompt("Guess a number between 1 and 10.");
+
+            //using while loop to repeat prompt for user input as long as their guess does 
+            //not match the random number
+            while (playerNumber != randomNumber) {
+                if (playerNumber > randomNumber) {
+                    numOfGuesses++;
+                    playerNumber = prompt("Guess was too high, guess again.")
+                } else {
+                    numOfGuesses++;
+                    playerNumber = prompt("Guess was too low, guess again.")
+                }
+            }
+
+            //code will only reach this point once a correct guess has been made
+            //when it has, display how many guesses it took
+            if (numOfGuesses === 1) {
+                alert(`You guessed it in 1 guess!`)
+            } else {
+                alert(`You guessed it in ${numOfGuesses} guesses!`)
+            }
+            
+            //prompting user if they'd like to play again, otherwise loop will end
+            var playAgain = prompt('Press Y if you\'d like to play again!')
+        } while (playAgain.toUpperCase() === "Y")
+    </script>
+</body>
+
+</html>
